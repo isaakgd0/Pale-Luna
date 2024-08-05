@@ -2,13 +2,13 @@ inventory = [] #inventário do usuário
 gameLoop = True #variável que controla o loop do jogo
 
 while gameLoop:
-  print("You are in a dark room. Moonlight shines through the window. \nThere is GOLD in a corner, along with a SHOVEL and a ROPE. \nThere is a DOOR to the EAST.")
-  print("Command?")
+  print("You are in a dark room. Moonlight shines through the window.") 
+  print("There is GOLD in a corner, along with a SHOVEL and a ROPE. \nThere is a DOOR to the EAST.")
 
   times = 0
   command = 0
   while command != "open door":
-    command = input().lower()
+    command = input("Command?").lower()
     if command == "pick up shovel":
       inventory.append("Shovel")
       print("Taken")
@@ -50,11 +50,13 @@ while gameLoop:
     command = input("Command?")
 
   print("You drop the gold in the hole")
+  inventory.remove("Gold")
   command = input("Command?")
   while command != "tap hole" and command != "fill hole" and command != "fill the hole" and command != "tap the hole":
     print("Hide your treasure.")
     command = input("Command?")
 
+  inventory.remove("Shovel")
   while times <= 10:
     print("Congratulations")
     print(f"{'-' * 4} 40.24248 {'-' * 4} \n{'-' * 4} -121.4434 {'-' * 4}")
